@@ -1,1 +1,5 @@
 # spaceFrontier
+
+## stránka
+
+## hra

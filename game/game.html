@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <!-- Připojení CSS souborů -->
+    <link rel="stylesheet" href="src/styles/index.css">
+    <link rel="stylesheet" href="src/styles/main.css">
+    <link rel="stylesheet" href="src/styles/menu.css">
+    <link rel="stylesheet" href="src/styles/terminal.css">
+    <style>
+        .scene {
+            display: none;
+        }
+
+        .current {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Kontejner, kde se vše zobrazí -->
+    <div class="mainScene scene">
+        <div class="status">
+            <div class="bar">
+                <div class="fill" id="energyFill"></div>
+                <div class="label">Energie</div>
+            </div>
+            <div class="bar">
+                <div class="fill" id="waterFill"></div>
+                <div class="label">Voda</div>
+            </div>
+            <div class="bar">
+                <div class="fill" id="hydrogenFill"></div>
+                <div class="label">Vodík</div>
+            </div>
+            <div class="bar">
+                <div class="fill" id="oxygenFill"></div>
+                <div class="label">Kyslík</div>
+            </div>
+        </div>
+        <div id="terminalContainer">
+            <div id="terminal"></div>
+            <div class="input-line">
+                <input type="text" id="commandInput" placeholder="Zadejte příkaz..." class="input"
+                    onkeyup="handleKeyPress(event)">
+                <button onclick="executeCommand()">Spustit</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="menuScene scene current">
+        <div class="buttons">
+            <button onclick="startSimulation()" class="start">Začít</button>
+            <button onclick="settingsMenu()" class="settings">Nastavení</button>
+            <button>Ukončit</button>
+        </div>
+    </div>
+
+    <script src="src/scripts/processes.js"></script>
+    <script src="src/scripts/menu.js"></script>
+    <script src="src/scripts/setUp.js"></script>
+    <script src="src/scripts/terminal.js"></script>
+</body>
+
+</html>

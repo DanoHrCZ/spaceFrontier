@@ -1,0 +1,28 @@
+.menuScene{
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    flex-direction: column;
+}
+.buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.buttons button{
+    width: 200px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: Blur(10px);
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    margin: 10px;
+}
+
+.buttons button:hover{
+    background-color: rgba(255, 255, 255, 0.5);
+}

@@ -1,0 +1,8 @@
+body {
+    display: flex;
+    justify-content: center;
+    background: url(../media/background.png);
+    background-size: auto;
+    height: 500px;
+    margin: 0;
+}
