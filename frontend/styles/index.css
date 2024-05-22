@@ -1,0 +1,28 @@
+header {
+    font-size: 500%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: solid black 2px;
+}
+
+#info {
+    text-decoration: none;
+    margin-left: 50px;
+}
+
+#hra {
+    text-decoration: none;
+}
+
+#odkazy {
+    font-size: 70%;
+    margin-right: 300px;
+    margin-top: 30px;
+}
+
+#nadpis {
+    margin-left: 200px;
+}
+
