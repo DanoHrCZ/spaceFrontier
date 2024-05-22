@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="src/styles/index.css">
     <link rel="stylesheet" href="src/styles/main.css">
     <link rel="stylesheet" href="src/styles/menu.css">
-    <link rel="stylesheet" href="src/styles/terminal.css">
     <style>
         .scene {
             display: none;
@@ -21,22 +20,27 @@
 <body>
     <!-- Kontejner, kde se vše zobrazí -->
     <div class="mainScene scene">
-        <div class="status">
-            <div class="bar">
-                <div class="fill" id="energyFill"></div>
-                <div class="label">Energie</div>
+        <div class="leftSection">
+            <div class="hologram">
+                <img src="./src/media/ship.svg" alt="">
             </div>
-            <div class="bar">
-                <div class="fill" id="waterFill"></div>
-                <div class="label">Voda</div>
-            </div>
-            <div class="bar">
-                <div class="fill" id="hydrogenFill"></div>
-                <div class="label">Vodík</div>
-            </div>
-            <div class="bar">
-                <div class="fill" id="oxygenFill"></div>
-                <div class="label">Kyslík</div>
+            <div class="status">
+                <div class="bar">
+                    <div class="fill" id="energyFill"></div>
+                    <div class="label">Energie</div>
+                </div>
+                <div class="bar">
+                    <div class="fill" id="waterFill"></div>
+                    <div class="label">Voda</div>
+                </div>
+                <div class="bar">
+                    <div class="fill" id="hydrogenFill"></div>
+                    <div class="label">Vodík</div>
+                </div>
+                <div class="bar">
+                    <div class="fill" id="oxygenFill"></div>
+                    <div class="label">Kyslík</div>
+                </div>
             </div>
         </div>
         <div id="terminalContainer">
@@ -56,11 +60,11 @@
             <button>Ukončit</button>
         </div>
     </div>
-
+    <div class="filter1"></div>
     <script src="src/scripts/processes.js"></script>
     <script src="src/scripts/menu.js"></script>
-    <script src="src/scripts/setUp.js"></script>
     <script src="src/scripts/terminal.js"></script>
+
 </body>
 
 </html>

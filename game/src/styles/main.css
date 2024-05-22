@@ -1,3 +1,206 @@
+.hologram {
+    position: relative;
+    overflow: hidden; /* Přidáno, aby se skryla část pseudo-elementů, které jsou mimo oblast .hologram */
+}
+
+.hologram img {
+    height: 300px;
+    width: auto;
+    filter: brightness(1.2) contrast(1.2);
+    opacity: 0.8;
+    position: relative;
+    z-index: 1;
+    animation: move 5s infinite alternate step-start, glitch 1s infinite step-start, flicker 10s infinite steps(1);
+}
+
+.hologram::before,
+.hologram::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: url('./src/media/ship.svg') no-repeat center center;
+    background-size: contain;
+    opacity: 0.6;
+    filter: blur(3px);
+    z-index: -1;
+}
+
+.hologram::before {
+    filter: brightness(1.5) contrast(1.5) hue-rotate(60deg);
+    animation: glitch-before 0.8s step-start;
+}
+
+.hologram::after {
+    filter: brightness(1.5) contrast(1.5) hue-rotate(-60deg);
+    animation: glitch-after 1.2s step-start;
+}
+
+@keyframes move {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-2px);
+    }
+}
+
+@keyframes glitch {
+    0% {
+        clip: rect(16px, 9999px, 48px, 0); /* Upraveno pro větší trhání */
+        transform: translate(0);
+    }
+    10% {
+        clip: rect(24px, 9999px, 36px, 0);
+        transform: translate(-2px, -2px); /* Upraveno pro větší trhání */
+    }
+    20% {
+        clip: rect(80px, 9999px, 140px, 0);
+        transform: translate(-5px, 0);
+    }
+    30% {
+        clip: rect(40px, 9999px, 60px, 0);
+        transform: translate(3px, -3px); /* Upraveno pro větší trhání */
+    }
+    40% {
+        clip: rect(95px, 9999px, 120px, 0);
+        transform: translate(-5px, 0);
+    }
+    50% {
+        clip: rect(32px, 9999px, 64px, 0);
+        transform: translate(4px, 2px); /* Upraveno pro větší trhání */
+    }
+    60% {
+        clip: rect(45px, 9999px, 65px, 0);
+        transform: translate(0, -5px);
+    }
+    70% {
+        clip: rect(60px, 9999px, 100px, 0);
+        transform: translate(-3px, 3px); /* Upraveno pro větší trhání */
+    }
+    80% {
+        clip: rect(25px, 9999px, 85px, 0);
+        transform: translate(5px, 0);
+    }
+    90% {
+        clip: rect(45px, 9999px, 55px, 0);
+        transform: translate(0, -4px); /* Upraveno pro větší trhání */
+    }
+    100% {
+        clip: rect(10px, 9999px, 85px, 0);
+        transform: translate(0);
+    }
+}
+
+@keyframes glitch-before {
+    0% {
+        clip: rect(20px, 9999px, 60px, 0); /* Upraveno pro větší trhání */
+        transform: translate(0);
+    }
+    10% {
+        clip: rect(30px, 9999px, 40px, 0);
+        transform: translate(-2px, 2px); /* Upraveno pro větší trhání */
+    }
+    20% {
+        clip: rect(70px, 9999px, 100px, 0);
+        transform: translate(5px, -1px);
+    }
+    30% {
+        clip: rect(35px, 9999px, 45px, 0);
+        transform: translate(3px, 3px); /* Upraveno pro větší trhání */
+    }
+    40% {
+        clip: rect(80px, 9999px, 120px, 0);
+        transform: translate(-5px, 0);
+    }
+    50% {
+        clip: rect(25px, 9999px, 55px, 0);
+        transform: translate(4px, -2px); /* Upraveno pro větší trhání */
+    }
+    60% {
+        clip: rect(35px, 9999px, 70px, 0);
+        transform: translate(0, 5px);
+    }
+    70% {
+        clip: rect(50px, 9999px, 90px, 0);
+        transform: translate(-3px, -3px); /* Upraveno pro větší trhání */
+    }
+    80% {
+        clip: rect(20px, 9999px, 80px, 0);
+        transform: translate(5px, 0);
+    }
+    90% {
+        clip: rect(40px, 9999px, 50px, 0);
+        transform: translate(0, -4px); /* Upraveno pro větší trhání */
+    }
+    100% {
+        clip: rect(30px, 9999px, 90px, 0);
+        transform: translate(0);
+    }
+}
+
+@keyframes glitch-after {
+    0% {
+        clip: rect(25px, 9999px, 55px, 0); /* Upraveno pro větší trhání */
+        transform: translate(0);
+    }
+    10% {
+        clip: rect(35px, 9999px, 45px, 0);
+        transform: translate(-2px, -2px); /* Upraveno pro větší trhání */
+    }
+    20% {
+        clip: rect(75px, 9999px, 105px, 0);
+        transform: translate(5px, 0);
+    }
+    30% {
+        clip: rect(40px, 9999px, 50px, 0);
+        transform: translate(3px, 3px); /* Upraveno pro větší trhání */
+    }
+    40% {
+        clip: rect(90px, 9999px, 130px, 0);
+        transform: translate(-5px, 0);
+    }
+    50% {
+        clip: rect(30px, 9999px, 60px, 0);
+        transform: translate(4px, 2px); /* Upraveno pro větší trhání */
+    }
+    60% {
+        clip: rect(40px, 9999px, 65px, 0);
+        transform: translate(0, -5px);
+    }
+    70% {
+        clip: rect(55px, 9999px, 95px, 0);
+        transform: translate(-3px, 3px); /* Upraveno pro větší trhání */
+    }
+    80% {
+        clip: rect(22px, 9999px, 82px, 0);
+        transform: translate(5px, 0);
+    }
+    90% {
+        clip: rect(45px, 9999px, 58px, 0);
+        transform: translate(0, -4px); /* Upraveno pro větší trhání */
+    }
+    100% {
+        clip: rect(35px, 9999px, 95px, 0);
+        transform: translate(0);
+    }
+}
+
+@keyframes flicker {
+    0%, 10%, 35%,  50%, 90%,  100% {
+        opacity: 0.4;
+    }
+    5%, 16%, 65%, 94% {
+        opacity: 1;
+    }
+    7%, 85% {
+        opacity: 0;
+    }
+}
+
+
 .mainScene {
     width: 100%;
     display: flex;
@@ -27,23 +230,30 @@
 
 #terminalContainer {
     width: 100%;
-    height: 300px;
+    height: 100%;
     color: white;
     padding: 10px;
+    box-sizing: border-box;
 }
-#commandInput{
+
+#commandInput {
     border-radius: 5px;
     color: white;
+    backdrop-filter: Blur(5px);
+    box-sizing: border-box;
 }
+
 #terminal {
+    backdrop-filter: Blur(10px);
     width: 100%;
-    height: 200px;
+    height: 90%;
     background-color: rgba(20, 0, 80, 0.5);
     color: white;
     overflow-y: scroll;
     padding: 10px;
     box-sizing: border-box;
     border-radius: 5px;
+    scrollbar-color: rgba(20, 0, 80, 0.5);
 }
 
 .input-line {
@@ -51,7 +261,7 @@
     background-color: rgba(20, 0, 80, 0.5);
     display: flex;
     margin-top: 5px;
-    
+
 }
 
 .input-line input {
@@ -91,4 +301,64 @@
     left: 0;
     width: 100%;
     text-align: center;
+}
+
+.filter1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.05;
+    background: url(../media/giphy.gif);
+    /* Poloprůhledná bílá */
+    z-index: 2;
+    pointer-events: none;
+    /* Umožňuje klikání skrz div */
+}
+
+/* Styl pro celý scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+    /* šířka scrollbaru */
+    height: 12px;
+    /* výška scrollbaru (pro horizontální scrollbary) */
+}
+
+/* Styl pro posuvník (thumb) */
+::-webkit-scrollbar-thumb {
+    background-color: #007bff;
+    /* barva posuvníku */
+    border-radius: 10px;
+    /* zakulacené rohy posuvníku */
+    border: 3px solid transparent;
+    /* průhledný okraj, aby vypadal menší */
+    background-clip: content-box;
+    /* klipování pozadí na obsah */
+}
+
+/* Styl pro pozadí scrollbaru (track) */
+::-webkit-scrollbar-track {
+    background: rgba(20, 0, 80, 0.5);
+    /* barva pozadí scrollbaru */
+    border-radius: 10px;
+    /* zakulacené rohy pozadí */
+}
+
+/* Styl pro při přejetí myší */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #0060c7;
+    /* barva posuvníku při přejetí myší */
+}
+
+.leftSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hologram img {
+    height: 300px;
+    width: auto;
 }

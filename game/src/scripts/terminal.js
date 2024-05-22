@@ -5,30 +5,30 @@ const executeCommand = () => {
     p.textContent = "> " + input;
     terminal.appendChild(p);
 
-    // Splitting input into command and argument
+    // Rozdělení vstupu na příkaz a argument
     var parsedInput = input.split(" ");
     var command = parsedInput[0];
     var argument = parsedInput[1];
 
-    // Differentiating between various commands
+    // Rozlišení různých příkazů
     switch (command) {
         case "help":
             help();
             break;
         case "elektroliza":
-            // Change electrolysis speed
+            // Změna rychlosti elektrolýzy
             setElectrolysisSpeed(parseInt(argument));
             break;
         case "generator":
-            // Change hydrogen generator power
+            // Změna výkonu vodíkového generátoru
             setHydrogenGeneratorPower(parseInt(argument));
             break;
         case "solarniPanely":
-            // Change solar panel angle
+            // Změna natočení solárních panelů
             setSolarPanelAngle(parseInt(argument));
             break;
         default:
-            // If command is not recognized, display an error message
+            // Pokud příkaz není rozpoznán, zobrazit chybovou zprávu
             var error = document.createElement("p");
             error.textContent = "Neznámý příkaz.";
             error.classList.add("error");
@@ -36,7 +36,7 @@ const executeCommand = () => {
             break;
     }
 
-    // Clear input after executing the command
+    // Vymazání vstupu po vykonání příkazu
     document.getElementById("commandInput").value = "";
 }
 
@@ -44,7 +44,7 @@ const setElectrolysisSpeed = (value) => {
     if (value >= 0 && value <= maxElectrolysisSpeed) {
         electrolysisSpeed = value;
         var message = document.createElement("p");
-        message.textContent = "Rychlost elektrolízy byla nastavena na: " + value;
+        message.textContent = "Rychlost elektrolýzy byla nastavena na: " + value;
         terminal.appendChild(message);
     } else {
         var error = document.createElement("p");
@@ -53,9 +53,10 @@ const setElectrolysisSpeed = (value) => {
         terminal.appendChild(error);
     }
 }
+
 const help = () => {
     var message = document.createElement("p");
-    message.textContent = "help - zobrazí veškeré příkazy | elektroliza 'hodnota' - nastaví rychlost elektrolízy | generator 'hodnota' nastaví výkon generátoru | solarniPanely '+/-hodnota' nastaví natočení solárních panelů";
+    message.textContent = "help - zobrazí veškeré příkazy | elektroliza 'hodnota' - nastaví rychlost elektrolýzy | generator 'hodnota' nastaví výkon generátoru | solarniPanely '+/-hodnota' nastaví natočení solárních panelů";
     terminal.appendChild(message);
 }
 

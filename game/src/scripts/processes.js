@@ -14,7 +14,7 @@ let maxSolarPanelPower = 100;
 let hydrogenGeneratorPower = 50;
 let hydrogenEngineConsumption = 0;
 let maxHydrogenEngineConsumption = 10;
-let lifeSupportConsumption = 20; // Spotřeba vody, kyslíku a energie systémem podpory života
+let lifeSupportConsumption = 5; // Spotřeba vody, kyslíku a energie systémem podpory života
 
 // Simulace jednotlivých procesů na lodi v každém časovém kroku
 const simulateProcesses = () => {
@@ -56,9 +56,8 @@ const simulateProcesses = () => {
     }
 
     // Simulace systému podpory života
-    water -= lifeSupportConsumption;
     oxygen -= lifeSupportConsumption;
-    energy -= lifeSupportConsumption;
+    energy -= lifeSupportConsumption * 10;
 
     // Aktualizace stavu zásob v případě, že jsou mimo rozsah
     if (hydrogen < 0) {
