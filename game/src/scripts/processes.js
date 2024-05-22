@@ -1,19 +1,18 @@
 // Proměnné pro simulaci
-let energy = 900;
+let energy = 1000;
 let maxEnergy = 1000;
-let water = 5000;
-let maxWater = 10000;
-let hydrogen = 4000;
-let maxHydrogen = 10000;
-let oxygen = 3000;
-let maxOxygen = 10000;
+let water = 1000;
+let maxWater = 1000;
+let hydrogen = 1000;
+let maxHydrogen = 1000;
+let oxygen = 1000;
+let maxOxygen = 1000;
 let electrolysisSpeed = 10;
 let maxElectrolysisSpeed = 10;
-let solarPanelPower = 1000;
+let solarPaneleEfficiency = 10;
 let maxSolarPanelPower = 100;
-let hydrogenGeneratorPower = 50;
-let hydrogenEngineConsumption = 0;
-let maxHydrogenEngineConsumption = 10;
+let hydrogenGeneratorPower = 0;
+let maxHydrogenGeneratorPower = 50;
 let lifeSupportConsumption = 5; // Spotřeba vody, kyslíku a energie systémem podpory života
 
 // Simulace jednotlivých procesů na lodi v každém časovém kroku
@@ -36,7 +35,7 @@ const simulateProcesses = () => {
         hydrogen += hydrogenProduction;
         oxygen += oxygenProduction;
         water -= hydrogenProduction + oxygenProduction;
-        energy -= (hydrogenProduction + oxygenProduction); // Snížíme množství energie spotřebované elektrolýzou
+        energy -= (hydrogenProduction + oxygenProduction) * 3; // Snížíme množství energie spotřebované elektrolýzou
         if (hydrogen > maxHydrogen) {
             hydrogen = maxHydrogen;
         }
@@ -52,7 +51,7 @@ const simulateProcesses = () => {
     let hydrogenGeneration = hydrogenGeneratorPower;
     if (hydrogen + hydrogenGeneration <= maxHydrogen) {
         hydrogen += hydrogenGeneration;
-        energy -= hydrogenGeneration; // Snížíme množství energie spotřebované vodíkovým generátorem
+        energy += hydrogenGeneration; // Snížíme množství energie spotřebované vodíkovým generátorem
     }
 
     // Simulace systému podpory života
