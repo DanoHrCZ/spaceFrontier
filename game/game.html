@@ -2,6 +2,9 @@
 <html lang="cs">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Frontier</title>
     <!-- Připojení CSS souborů -->
     <link rel="stylesheet" href="src/styles/index.css">
     <link rel="stylesheet" href="src/styles/main.css">
@@ -18,37 +21,65 @@
 </head>
 
 <body>
+    <div id="alerts"></div>
     <!-- Kontejner, kde se vše zobrazí -->
     <div class="mainScene scene">
         <div class="leftSection">
-            <div class="hologram">
-                <img src="./src/media/ship.svg" alt="">
+            <div class="progressBar">
+                <div class="fillProgress" id="progressFill"></div>
+                <div class="label">PROGRES</div>
             </div>
-            <div class="status">
-                <div class="bar">
-                    <div class="fill" id="energyFill"></div>
-                    <div class="label">Energie</div>
-                </div>
-                <div class="bar">
-                    <div class="fill" id="waterFill"></div>
-                    <div class="label">Voda</div>
-                </div>
-                <div class="bar">
-                    <div class="fill" id="hydrogenFill"></div>
-                    <div class="label">Vodík</div>
-                </div>
-                <div class="bar">
-                    <div class="fill" id="oxygenFill"></div>
-                    <div class="label">Kyslík</div>
-                </div>
+            <div class="hologram">
+                <img src="src/media/ship.svg" alt="">
             </div>
         </div>
-        <div id="terminalContainer">
-            <div id="terminal"></div>
-            <div class="input-line">
-                <input type="text" id="commandInput" placeholder="Zadejte příkaz..." class="input"
-                    onkeyup="handleKeyPress(event)">
-                <button onclick="executeCommand()">Spustit</button>
+        <div class="rightSection">
+            <div id="terminalContainer">
+                <div id="terminal"></div>
+                <div class="input-line">
+                    <input type="text" id="commandInput" autocomplete="off" placeholder="Zadejte příkaz..."
+                        class="input" onkeyup="handleKeyPress(event)">
+                    <button onclick="executeCommand()">Spustit</button>
+                </div>
+            </div>
+            <div class="status">
+                <div>
+                    <div class="bar">
+                        <div class="fill" id="energyFill"></div>
+                        <div class="label">Energie: <span id="energyText"></span></div>
+                    </div>
+                    <div class="bar">
+                        <div class="fill" id="waterFill"></div>
+                        <div class="label">Voda: <span id="waterText"></span></div>
+                    </div>
+                    <div class="bar">
+                        <div class="fill" id="hydrogenFill"></div>
+                        <div class="label">Vodík: <span id="hydrogenText"></span></div>
+                    </div>
+                    <div class="bar">
+                        <div class="fill" id="oxygenFill"></div>
+                        <div class="label">Kyslík: <span id="oxygenText"></span></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="bar">
+                        <div class="fill" id="electrolysisSpeedFill"></div>
+                        <div class="label">Rychlost elektrolýzy: <span id="electrolysisSpeedText"></span></div>
+                    </div>
+                    <div class="bar">
+                        <div class="fill" id="generatorPowerFill"></div>
+                        <div class="label">Výkon generátoru: <span id="generatorPowerText"></span></div>
+                    </div>
+                    <div class="bar">
+                        <div class="fill" id="enginePowerFill"></div>
+                        <div class="label">Výkon pohonu: <span id="enginePowerText"></span></div>
+                    </div>
+                    <div class="bar">
+                        <div class="fill" id="solarPanelEfficiencyFill"></div>
+                        <div class="label">Efektivita solárních panelů: <span id="solarPanelEfficiencyText"></span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -60,11 +91,13 @@
             <button>Ukončit</button>
         </div>
     </div>
+    <div class="gameOverScene scene">
+        <span class="overText">KONEC HRY</span>
+    </div>
     <div class="filter1"></div>
     <script src="src/scripts/processes.js"></script>
     <script src="src/scripts/menu.js"></script>
     <script src="src/scripts/terminal.js"></script>
-
 </body>
 
 </html>
