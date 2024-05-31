@@ -1,31 +1,47 @@
 <!DOCTYPE html>
 <html lang="cs">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Vojtěch Hošťálek, Daniel Hrečin">
-    <meta name="keywords" content="SpaceFrontier, space, spaceship">
+    <meta name="keywords" content="SpaceFrontier, space, spaceship, game, hra">
     <meta name="decription" content="">
     <link rel="stylesheet" href="./styles/index.css">
     <title>SpaceFrontier</title>
+    <link rel="icon" href="./media/favicon.ico" type="image/x-icon">
 </head>
+
 <body>
     <header>
         <div id="nadpis">
-            SpaceFrontier
+            <img id="Logo" src="./media/logoSF.svg" alt="logo">
+            <h1>SpaceFrontier</h1>
         </div>
         <nav>
             <div id="odkazy">
-                <a id="hra" href="./index.html">HRA</a>
+                <a id="main" href="./index.html">HRA</a>
                 <a id="info" href="./pages/info.html">INFO</a>
             </div>
         </nav>
     </header>
-    <section>
+    <section id="hra">
         <iframe src="../game/game.html" frameborder="0"></iframe>
     </section>
     <footer>
-
+        <div>
+            <div>
+                <span id="datum"></span>
+                <span>SpaceFrontier</span>
+                <span>&copy; Hošťálek, Hrečin</span>
+            </div>
+            <div id="odkazyF">
+                <a href="./index.html">hra</a>
+                <a href="./pages/info.html">info</a>
+            </div>
+        </div>
     </footer>
+    <script src="./scripts/index.js"></script>
 </body>
+
 </html>
