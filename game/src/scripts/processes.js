@@ -116,7 +116,7 @@ const simulateProcesses = () => {
 
     // Simulace systému podpory života
     oxygen -= lifeSupportConsumption;
-    energy -= lifeSupportConsumption * 8;
+    energy -= lifeSupportConsumption * 2;
     water -= lifeSupportConsumption;
 
     // Aktualizace stavu zásob v případě, že jsou mimo rozsah
@@ -181,18 +181,18 @@ const updateText = () => {
 }
 
 const events = [
-    { name: "Příliv energie", effect: 150, type: "positive" },
-    { name: "Oprava solárních panelů", effect: 30, type: "positive" },
-    { name: "Krize s vodou", effect: -80, type: "negative" },
-    { name: "Únik vodíku", effect: -30, type: "negative" },
-    { name: "Výbuch motoru", effect: -100, type: "negative" },
-    { name: "Záření z hvězdy", effect: -50, type: "negative" },
-    { name: "Elektromagnetická bouře", effect: -70, type: "negative" },
-    { name: "Nalezení nové planety", effect: 80, type: "positive" },
-    { name: "Výskyt meteorického roje", effect: -50, type: "negative" },
-    { name: "Vylepšení elektrolýzy", effect: 20, type: "positive" },
-    { name: "Zjištění poruchy solárních panelů", effect: -20, type: "negative" },
-    { name: "Nárazník s meteoritem", effect: -80, type: "negative" },
+    { id: "1", name: "Procháel jsi loď a nelzl jsi záložní nádrže z vodou.", effect: 300, type: "positive" },
+    { id: "2", name: "Procháel jsi loď a nelzl jsi záložní nádrže z vodou.", effect: 405, type: "positive" },
+    { id: "3", name: "Procháel jsi loď a nelzl jsi záložní nádrže z vodou.", effect: 150, type: "positive" },
+    { id: "4", name: "Procháel jsi loď a nelzl jsi záložní nádrže z vodou.", effect: 95, type: "positive" },
+    { id: "5", name: "Výbuch motoru", effect: -100, type: "negative" },
+    { id: "6", name: "Záření z hvězdy", effect: -50, type: "negative" },
+    { id: "7", name: "Elektromagnetická bouře", effect: -70, type: "negative" },
+    { id: "8", name: "Nalezení nové planety", effect: 80, type: "positive" },
+    { id: "9", name: "Výskyt meteorického roje", effect: -50, type: "negative" },
+    { id: "10", name: "Vylepšení elektrolýzy", effect: 20, type: "positive" },
+    { id: "", name: "Zjištění poruchy solárních panelů", effect: -20, type: "negative" },
+    { id: "", name: "Nárazník s meteoritem", effect: -80, type: "negative" },
     { name: "Záření gama", effect: -100, type: "negative" },
     { name: "Oprava generátoru", effect: 30, type: "positive" },
     { name: "Zlepšení výkonu pohonu", effect: 10, type: "positive" },
@@ -205,7 +205,7 @@ const events = [
 
 const applyPositiveEvent = (event) => {
     let message = `Pozitivní událost: ${event.name} (+${event.effect})`;
-    switch (event.name) {
+    switch (event.index) {
         case "Příliv energie":
             energy += event.effect;
             break;
