@@ -185,53 +185,18 @@ const events = [
     { id: "2", name: "Procháel jsi loď a nelzl jsi záložní nádrže z vodou.", effect: 405, type: "positive" },
     { id: "3", name: "Procháel jsi loď a nelzl jsi záložní nádrže z vodou.", effect: 150, type: "positive" },
     { id: "4", name: "Procháel jsi loď a nelzl jsi záložní nádrže z vodou.", effect: 95, type: "positive" },
-    { id: "5", name: "Výbuch motoru", effect: -100, type: "negative" },
-    { id: "6", name: "Záření z hvězdy", effect: -50, type: "negative" },
-    { id: "7", name: "Elektromagnetická bouře", effect: -70, type: "negative" },
-    { id: "8", name: "Nalezení nové planety", effect: 80, type: "positive" },
-    { id: "9", name: "Výskyt meteorického roje", effect: -50, type: "negative" },
-    { id: "10", name: "Vylepšení elektrolýzy", effect: 20, type: "positive" },
-    { id: "", name: "Zjištění poruchy solárních panelů", effect: -20, type: "negative" },
-    { id: "", name: "Nárazník s meteoritem", effect: -80, type: "negative" },
-    { name: "Záření gama", effect: -100, type: "negative" },
-    { name: "Oprava generátoru", effect: 30, type: "positive" },
-    { name: "Zlepšení výkonu pohonu", effect: 10, type: "positive" },
-    { name: "Vyčerpání ložisek vody", effect: -50, type: "negative" },
-    { name: "Náhodné zjištění výchozího kódu", effect: 100, type: "positive" },
-    { name: "Snížení spotřeby kyslíku", effect: 10, type: "positive" },
-    { name: "Ztráta spojení s mateřskou lodí", effect: -150, type: "negative" },
-    { name: "Nalezení nové zásobárny vody", effect: 60, type: "positive" },
+    { id: "5", name: "Byly poškozeny baterie. Snížena kapacita energie..", effect: 100, type: "negative" },
+    { id: "6", name: "Byly poškozeny nádrže vodíku. Snížena kapacita energie..", effect: 100, type: "negative" }
 ];
 
 const applyPositiveEvent = (event) => {
     let message = `Pozitivní událost: ${event.name} (+${event.effect})`;
-    switch (event.index) {
-        case "Příliv energie":
-            energy += event.effect;
-            break;
-        case "Oprava solárních panelů":
-            solarPanelEfficiency = calculateSolarPanelEfficiency(sun, solarPanelAngle);
-            break;
-        case "Nalezení nové planety":
-            progressEnd += event.effect;
-            break;
-        case "Vylepšení elektrolýzy":
-            electrolysisSpeed += event.effect;
-            break;
-        case "Oprava generátoru":
-            hydrogenGeneratorPower += event.effect;
-            break;
-        case "Zlepšení výkonu pohonu":
-            hydrogenEngineConsumption += event.effect;
-            break;
-        case "Náhodné zjištění výchozího kódu":
-            progress += event.effect;
-            break;
-        case "Snížení spotřeby kyslíku":
-            lifeSupportConsumption -= event.effect;
-            break;
-        case "Nalezení nové zásobárny vody":
-            water += event.effect;
+    switch (event.id) {
+        case "1":
+        case "2":
+        case "3":
+        case "4":
+            water = Math.min(water + event.effect, maxWater);
             break;
         default:
             console.log("Neznámá pozitivní událost.");
@@ -242,33 +207,18 @@ const applyPositiveEvent = (event) => {
 
 const applyNegativeEvent = (event) => {
     let message = `Negativní událost: ${event.name} (${event.effect})`;
-    switch (event.name) {
-        case "Krize s vodou":
-            water += event.effect;
+    switch (event.id) {
+        case "5":
+            maxEnergy = Math.max(maxEnergy + event.effect, 0);
+            if (energy > maxEnergy) {
+                energy = maxEnergy;
+            }
             break;
-        case "Únik vodíku":
-            hydrogen -= event.effect;
-            break;
-        case "Výbuch motoru":
-            progress -= event.effect;
-            break;
-        case "Záření z hvězdy":
-        case "Elektromagnetická bouře":
-        case "Záření gama":
-            energy -= event.effect;
-            break;
-        case "Výskyt meteorického roje":
-        case "Nárazník s meteoritem":
-            progress -= event.effect;
-            break;
-        case "Zjištění poruchy solárních panelů":
-            solarPanelEfficiency = 0.0;
-            break;
-        case "Vyčerpání ložisek vody":
-            water -= event.effect;
-            break;
-        case "Ztráta spojení s mateřskou lodí":
-            progress -= event.effect;
+        case "6":
+            maxHydrogen = Math.max(maxHydrogen + event.effect, 0);
+            if (hydrogen > maxHydrogen) {
+                hydrogen = maxHydrogen;
+            }
             break;
         default:
             console.log("Neznámá negativní událost.");
@@ -276,6 +226,7 @@ const applyNegativeEvent = (event) => {
     }
     showAlert(message, "red");
 }
+
 const getEvent = () => {
     const event = events[getRandomInt(events.length)];
     if (event.type === "positive") {
@@ -284,6 +235,7 @@ const getEvent = () => {
         applyNegativeEvent(event);
     }
 }
+
 // Funkce pro zobrazení alertu
 const showAlert = (message, color) => {
     const alertDiv = document.createElement("div");
@@ -299,6 +251,7 @@ const showAlert = (message, color) => {
         alertDiv.remove();
     }, 5000);
 }
+
 
 const gameOver = () => {
     clearInterval(clock);
