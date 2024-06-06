@@ -3,9 +3,9 @@ var obrazky = [];//prázdný list
 var cas = 3000;//rychlost přepínání obrázků
 
 //obrázky 
-obrazky[0] = "../media/img1.jpg";
-obrazky[1] = "../media/img2.jpg";
-obrazky[2] = "../media/img3.jpg";
+obrazky[0] = "../media/Obrazky-projekt_WEB/img1.jpg";
+obrazky[1] = "../media/Obrazky-projekt_WEB/img2.jpg";
+obrazky[2] = "../media/Obrazky-projekt_WEB/img3.jpg";
 
 //Prechod na dalsi obrazek
 function zmenaObrazku(){

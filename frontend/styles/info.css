@@ -10,21 +10,8 @@ body {
 }
 
 
-header {
-    font-size: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgba(37, 37, 37, 0.5);
-    backdrop-filter: Blur(10px);
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    padding: 10px 0;
-}
+
+
 
 #info {
     text-decoration: none;
@@ -35,29 +22,14 @@ header {
     text-decoration: none;
 }
 
-#odkazy {
-    display: flex;
-    align-items: center;
-}
 
-#nadpis {
-    display: flex;
-    align-items: center;
-    color: white;
-    
-}
 
-#Logo {
-    width: 80px;
-    margin: 0 20px 0 5px ;
-}
 
-#odkazy a {
-    padding: 10px;
-    text-decoration: none;
-    color: white;
-    margin-right: 50px;
-}
+
+
+
+
+
 
 #hra {
     display: flex;
@@ -65,41 +37,11 @@ header {
     width: 100%;
 }
 
-footer {
-    color: white;
-    margin: 0px auto;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    margin-top: 5px;
-}
-
-footer div {
-    display: flex;
-    flex-direction: column;
-    
-}
-
-footer div div {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-}
-
-footer div div a {
-    color: white;
-    text-decoration: none;
-    margin: 5px;
-}
-
 h1 {
     font-size: 140%;
 }
 
-#odkazyF {
-    justify-content: center;
-}
+
 
 #texty {
     display: flex;
@@ -133,7 +75,25 @@ h2 {
 }
 
 details {
-    margin-left: 10px;
-    margin-top: 5px;
-}
+    border: 1px solid white;
+    border-radius: 4px;
+    padding: 0.5em 0.5em 0;
+    cursor: pointer;
+    margin: 10px 0px;
+  }
+  
+  summary {
+    font-weight: bold;
+    margin: -0.5em -0.5em 0;
+    padding: 0.5em;
+  }
+  
+  details[open] {
+    padding: 0.5em;
+  }
+  
+  details[open] summary {
+    border-bottom: 1px solid #aaa;
+    margin-bottom: 0.5em;
+  }
 
