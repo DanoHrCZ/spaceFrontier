@@ -1,14 +1,14 @@
-// Funkce pro získání aktuálního data a jeho formátování
+// Funkce pro získání aktuálního data
 function zobrazDatum() {
     // Vytvoření nového objektu Date pro aktuální datum a čas
     var dnes = new Date();
 
     // Získání jednotlivých částí data
-    var den = dnes.getDate(); // Den v měsíci (1-31)
-    var mesic = dnes.getMonth() + 1; // Měsíc (0-11), proto přičítáme 1
-    var rok = dnes.getFullYear(); // Rok (čtyřciferný)
+    var den = dnes.getDate(); // Den 
+    var mesic = dnes.getMonth() + 1; // Měsíc
+    var rok = dnes.getFullYear(); // Rok 
 
-    // Formátování data do požadovaného formátu (den.měsíc.rok)
+    //Datum
     var formatovaneDatum = den + "." + mesic + "." + rok;
 
     // Výpis data do elementu s id "datum"
