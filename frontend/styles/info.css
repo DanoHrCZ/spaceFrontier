@@ -10,9 +10,6 @@ body {
 }
 
 
-
-
-
 #info {
     text-decoration: none;
     margin-left: 50px;
@@ -21,15 +18,6 @@ body {
 #main {
     text-decoration: none;
 }
-
-
-
-
-
-
-
-
-
 
 #hra {
     display: flex;
@@ -51,23 +39,23 @@ h1 {
 section {
     flex: 1;
     padding: 20px;
-     height: 100%;
+    height: 100%;
     color: white;
     flex-direction: column;
-    
+
 }
 
 h2 {
     font-size: 150%;
 }
 
-#slideImg {
-    height: fit-content;
+#sliderImg {
+    height: 300px;
 }
 
 #slider {
-    height: 300px;
     width: 100%;
+    height: 300px;
     display: flex;
     justify-content: center;
     border-radius: 5px;
@@ -80,20 +68,19 @@ details {
     padding: 0.5em 0.5em 0;
     cursor: pointer;
     margin: 10px 0px;
-  }
-  
-  summary {
+}
+
+summary {
     font-weight: bold;
     margin: -0.5em -0.5em 0;
     padding: 0.5em;
-  }
-  
-  details[open] {
+}
+
+details[open] {
     padding: 0.5em;
-  }
-  
-  details[open] summary {
+}
+
+details[open] summary {
     border-bottom: 1px solid #aaa;
     margin-bottom: 0.5em;
-  }
-
+}
