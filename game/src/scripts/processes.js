@@ -29,6 +29,8 @@ let maxHydrogenEngineConsumption = 20;
 let progress = 0;
 let progressEnd = 1000;
 
+let score = 0;
+
 // Definice funkce getRandomInt
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
@@ -133,6 +135,7 @@ const simulateProcesses = () => {
         energy = 0;
     }
 
+    score += hydrogenEngineConsumption;
     //konec hry
     if (energy == 0 || water == 0 || oxygen == 0) {
         gameOver();
@@ -157,7 +160,6 @@ const simulateProcesses = () => {
 // Funkce pro aktualizaci šířky výplně bary podle hodnot proměnných
 const updateBars = () => {
     document.getElementById("progressFill").style.height = (progress / progressEnd) * 100 + "%";
-
     document.getElementById("energyFill").style.width = (energy / maxEnergy) * 100 + "%";
     document.getElementById("waterFill").style.width = (water / maxWater) * 100 + "%";
     document.getElementById("hydrogenFill").style.width = (hydrogen / maxHydrogen) * 100 + "%";
@@ -170,6 +172,7 @@ const updateBars = () => {
 
 // Funkce pro aktualizaci textových hodnot
 const updateText = () => {
+    document.getElementById("score").textContent = ("Score: " + score);
     document.getElementById("energyText").textContent = `${(energy / maxEnergy * 100).toFixed(2)}%`;
     document.getElementById("waterText").textContent = `${(water / maxWater * 100).toFixed(2)}%`;
     document.getElementById("hydrogenText").textContent = `${(hydrogen / maxHydrogen * 100).toFixed(2)}%`;

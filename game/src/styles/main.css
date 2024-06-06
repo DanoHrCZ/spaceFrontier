@@ -405,6 +405,18 @@
     text-align: center;
 }
 
+#score {
+    position: absolute;
+    top: 0%;
+    left: 0;
+    width: 100%;
+    text-align: left;
+    margin: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 200%;
+}
+
 .progressBar .label {
     left: 0;
     width: 100%;
