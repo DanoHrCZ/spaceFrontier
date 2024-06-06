@@ -6,31 +6,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Vojtěch Hošťálek, Daniel Hrečin">
-    <meta name="keywords" content="SpaceFrontier, space, spaceship, game, hra">
+    <meta name="keywords" content="SpaceFrontier, space, spaceship, game, hra, vesmír, ufo">
     <meta name="decription" content="">
     <!--Propojení html souboru s externím css souborem.-->
     <link rel="stylesheet" href="./frontend/styles/index.css">
     <title>SpaceFrontier</title>
-    <link rel="icon" href="./media/Obrazky-projekt_WEB/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./frontend/media/Obrazky-projekt_WEB/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
     <!--Nadpis stránky s logem a navigací.-->
     <header>
         <div id="nadpis">
-            <img id="Logo" src="./media/Obrazky-projekt_WEB/logoSF.svg" alt="logo">
+            <img id="Logo" src="./frontend/media/Obrazky-projekt_WEB/logoSF.svg" alt="logo">
             <h1>SpaceFrontier</h1>
         </div>
         <nav>
             <div id="odkazy">
                 <a id="main" href="./index.html">HRA</a>
-                <a id="info" href="./pages/info.html">INFO</a>
+                <a id="info" href="./frontend/pages/info.html">INFO</a>
             </div>
         </nav>
     </header>
     <!--Oddíl ve kterém se zobrazí okno se hrou.-->
     <div id="hra">
-        <iframe src="../game/game.html"></iframe>
+        <iframe src="./game/game.html"></iframe>
     </div>
     <!--Patička s JS funkcí pro datum a s odkazy na obě stránky.-->
     <footer>
@@ -42,12 +42,12 @@
             </div>
             <div id="odkazyF">
                 <a href="./index.html">hra</a>
-                <a href="./pages/info.html">info</a>
+                <a href="./frontend/pages/info.html">info</a>
             </div>
         </div>
     </footer>
     <!--Propojení html souboru s externím JavaScript souborem.-->
-    <script src="./scripts/index.js"></script>
+<script src="./frontend/scripts/index.js"></script>
 </body>
 
 </html>
