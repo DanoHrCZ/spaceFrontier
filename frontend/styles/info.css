@@ -9,7 +9,6 @@ body {
     background: linear-gradient(90deg, rgba(7, 0, 123, 1) 0%, rgba(54, 0, 119, 1) 100%);
 }
 
-
 #info {
     text-decoration: none;
     margin-left: 50px;
@@ -28,8 +27,6 @@ body {
 h1 {
     font-size: 140%;
 }
-
-
 
 #texty {
     display: flex;
