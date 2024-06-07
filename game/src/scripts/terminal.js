@@ -15,7 +15,7 @@ const executeCommand = () => {
         case "help":
             help();
             break;
-        case "elektroliza":
+        case "elektrolyza":
             // Změna rychlosti elektrolýzy
             setElectrolysisSpeed(parseInt(argument));
             break;
@@ -63,7 +63,7 @@ const setElectrolysisSpeed = (value) => {
 const help = () => {
     var terminal = document.getElementById("terminal");
     var message = document.createElement("p");
-    message.textContent = "help - zobrazí veškeré příkazy | elektroliza 'hodnota' (0-10) - nastaví rychlost elektrolýzy | generator 'hodnota' (0-20) - nastaví výkon generátoru | solarniPanely 'hodnota' (0-360) - nastaví natočení solárních panelů | pohon 'hodnota' (0-20) - nastaví výkon pohon";
+    message.textContent = "help - zobrazí veškeré příkazy | Elektrolyza 'hodnota' (0-10) - nastaví rychlost elektrolýzy | generator 'hodnota' (0-20) - nastaví výkon generátoru | solarniPanely 'hodnota' (0-360) - nastaví natočení solárních panelů | pohon 'hodnota' (0-20) - nastaví výkon pohon";
     terminal.appendChild(message);
 }
 
